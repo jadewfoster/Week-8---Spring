@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.time.LocalTime;
+import com.example.demo.appconfig.*;
 
 import org.springframework.context.ApplicationContext;
 
@@ -11,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 	
-	   Object byName = context.getBean("getTime");
+	   Object byName = context.getBean("showTime");
 	   LocalTime byType = context.getBean(LocalTime.class);
-	   LocalTime byBoth = context.getBean("showTimeUK", LocalTime.class);
+	   LocalTime byBoth = context.getBean("showTime", LocalTime.class);
 
 	   System.out.println(byName);
 	   System.out.println(byType);
